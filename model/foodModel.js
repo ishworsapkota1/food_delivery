@@ -27,6 +27,10 @@ const foodSchema = new mongoose.Schema(
       required: false,
       ref: "Restro",
     },
+    category: {
+      type: ObjectId,
+      ref: "Category",
+    },
   },
   { timestamps: true }
 );

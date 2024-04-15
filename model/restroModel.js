@@ -3,23 +3,10 @@ const { ObjectId } = mongoose.Schema;
 
 const restroSchema = new mongoose.Schema(
   {
-    username: {
+    restro_name: {
       type: String,
       required: true,
       trim: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-
-    isVerified: {
-      type: Boolean,
-      default: false,
     },
 
     address: {
