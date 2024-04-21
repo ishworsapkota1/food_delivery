@@ -1,15 +1,19 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema;
 
-const BookingSchema = new mongoose.Schema({
+const TableSchema = new mongoose.Schema({
   customer: {
     type: ObjectId,
     ref: "UserModel",
     required: true,
   },
-  address: {
-    type: ObjectId,
-    ref: "AddressModel",
+
+  capacity: {
+    type: String,
+    required: true,
+  },
+  availability: {
+    type: Boolean,
     required: true,
   },
   restro: {
@@ -17,9 +21,9 @@ const BookingSchema = new mongoose.Schema({
     required: false,
     ref: "Restro",
   },
-  available_dishes: {
-    type: ObjectId,
-    ref: "foodModel",
+  booked: {
+    type: Boolean,
+    required: true,
   },
 });
-module.exports = mongoose.model("BookingModel", BookingSchema);
+module.exports = mongoose.model("TableModel", TableSchema);

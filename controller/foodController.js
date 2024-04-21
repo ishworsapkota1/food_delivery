@@ -1,5 +1,6 @@
 const FoodModel = require("../model/foodModel");
 
+// create
 exports.addFood = async (req, res) => {
   let food = await FoodModel.create({
     title: req.body.title,

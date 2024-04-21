@@ -11,12 +11,12 @@ const {
 const router = require("express").Router();
 
 router.post("/register", register);
-router.post("/verifyUser", verifyUser);
+router.post("/verifyuser/:token", verifyUser);
 router.post("/resendverification", resendVerification);
-router.post("/forgotPassword", forgotPassword);
-router.post("/resetPassword", resetPassword);
+router.post("/forgotpassword", forgotPassword);
+router.post("/resetpassword", resetPassword);
 router.post("/login", login);
 router.get("/logout", logout);
-router.get("/getuserList", getUserList);
+router.get("/getuserlist", getUserList);
 
 module.exports = router;
