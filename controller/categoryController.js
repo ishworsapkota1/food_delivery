@@ -1,7 +1,7 @@
 const CategoryModel = require("../model/categoryModel");
-let { category_name } = req.body;
 
 exports.addCategory = async (req, res) => {
+  let { category_name } = req.body;
   let category = await CategoryModel.findOne({ category_name });
   if (category) {
     return res.status(404).send({ message: "Category already exists" });
