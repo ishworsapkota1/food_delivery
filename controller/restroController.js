@@ -1,15 +1,15 @@
 const RestroModel = require("../model/restroModel");
-const TableModel = require("../model/restroChildrens/Table");
 //    add
 exports.addRestaurant = async (req, res) => {
-  // check if already booked or not
-  let booked = TableModel.findOne({
-    booking: req.body.booked,
+  // create   //
+  let restro = await RestroModel.create({
+    restro_name: req.body.restro_name,
+    address: req.body.address,
   });
-  if (booked) {
-    return res.status(400).send({ message: "Already booked" });
+  if (!restro) {
+    return res.status(400).send({ message: "not available at the moment " });
   }
-  res.send({ message: "space available" });
+  res.send(restro);
 };
 //   read
 exports.findAllRestros = async (req, res) => {
@@ -20,7 +20,28 @@ exports.findAllRestros = async (req, res) => {
   res.send(restro);
 };
 //    update
-
-
-
-//   delete
+exports.updateAllRestros = async (req, res) => {
+  let restro = await RestroModel.findByIdAndUpdate(
+    req.params.id,
+    {
+      restro_name: req.body.restro_name,
+    },
+    { new: true }
+  );
+  if (!restro) {
+    return res.status(404).json({ error: "Restro not found" });
+  }
+  res.send(restro);
+};
+// delete by id
+exports.deleteRestroByID = async (req, res) => {
+  try {
+    let restro = await RestroModel.findByIdAndDelete(req.params.id);
+    if (!restro) {
+      return res.status(404).json({ error: "error occured" });
+    }
+    res.send(restro);
+  } catch (error) {
+    res.status(404).json({ error: error });
+  }
+};

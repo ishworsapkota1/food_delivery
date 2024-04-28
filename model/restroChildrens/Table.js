@@ -19,7 +19,7 @@ const TableSchema = new mongoose.Schema({
   restro: {
     type: ObjectId,
     required: false,
-    ref: "Restro",
+    ref: "RestroModel",
   },
   booked: {
     type: Boolean,

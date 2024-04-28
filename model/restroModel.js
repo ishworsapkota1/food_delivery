@@ -11,9 +11,9 @@ const restroSchema = new mongoose.Schema(
 
     address: {
       type: ObjectId,
-      ref: "Address",
+      ref: "AddressModel",
     },
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("Restro", restroSchema);
+module.exports = mongoose.model("RestroModel", restroSchema);

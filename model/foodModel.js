@@ -25,11 +25,11 @@ const foodSchema = new mongoose.Schema(
     restro: {
       type: ObjectId,
       required: false,
-      ref: "Restro",
+      ref: "RestroModel",
     },
     category: {
       type: ObjectId,
-      ref: "Category",
+      ref: "CategoryModel",
     },
   },
   { timestamps: true }
